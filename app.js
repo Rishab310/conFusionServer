@@ -69,6 +69,7 @@ module.exports = app;
 
 
 //  mongod --dbpath=data --bind_ip 127.0.0.1
+//  mongod --dbpath="D:\Web\Full Stack Web Developement\NodeJS\Project\mongodb\data" --bind_ip 127.0.0.1
 
 
 
