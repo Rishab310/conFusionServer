@@ -55,7 +55,7 @@ dishRouter.route('/:dishId')
   }, (err) => next(err))
   .catch((err) => next(err));
 })
-.post(authenticate.verifyUser, (req, res, next) => {
+.post(authenticate.verifyUser, authenticate.verifyAdmin, (req, res, next) => {
   res.statusCode = 403;
   res.end('POST operation not supported on /dishes/' + req.params.dishId);
 })
@@ -131,7 +131,7 @@ dishRouter.route('/:dishId/comments')
   res.statusCode = 403;
   res.end('PUT operation not supported on /dishes' + req.params.dishId + '/comments');
 })
-.delete(authenticate.verifyUser, (req, res, next) => {
+.delete(authenticate.verifyUser, authenticate.verifyAdmin, (req, res, next) => {
   Dishes.findById(req.params.dishId)
   .then((dish) => {
     if(dish !=null){
